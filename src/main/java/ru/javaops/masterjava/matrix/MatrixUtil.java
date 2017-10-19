@@ -20,19 +20,38 @@ public class MatrixUtil {
 
     // TODO optimize by https://habrahabr.ru/post/114797/
     public static int[][] singleThreadMultiply(int[][] matrixA, int[][] matrixB) {
+//        matrixBT = transpon(matrixB);
         final int matrixSize = matrixA.length;
         final int[][] matrixC = new int[matrixSize][matrixSize];
 
-        for (int i = 0; i < matrixSize; i++) {
-            for (int j = 0; j < matrixSize; j++) {
-                int sum = 0;
-                for (int k = 0; k < matrixSize; k++) {
-                    sum += matrixA[i][k] * matrixB[k][j];
+        int[] thatColumn = new int[matrixB.length];
+        try {
+            for (int j = 0; ; j++) {
+                for (int k = 0; k < matrixB.length; k++) {
+                    thatColumn[k] = matrixB[k][j];
                 }
-                matrixC[i][j] = sum;
+                for (int i = 0; i < matrixSize; i++) {
+                    int thisRow[] = matrixA[i];
+                    int sum = 0;
+                    for (int k = 0; k < matrixSize; k++) {
+                        sum += thisRow[k] * thatColumn[k];
+                    }
+                    matrixC[i][j] = sum;
+                }
             }
+        } catch (IndexOutOfBoundsException e) {
         }
         return matrixC;
+    }
+
+    private static int[][] transpon(int[][] matrix) {
+        int[][] resultMatrix = new int[matrix[0].length][matrix.length];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                resultMatrix[j][i] = matrix[i][j];
+            }
+        }
+        return resultMatrix;
     }
 
     public static int[][] create(int size) {

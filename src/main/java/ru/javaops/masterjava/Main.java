@@ -1,5 +1,7 @@
 package ru.javaops.masterjava;
 
+import ru.javaops.masterjava.matrix.MatrixUtil;
+
 /**
  * User: gkislin
  * Date: 05.08.2015
@@ -9,6 +11,11 @@ package ru.javaops.masterjava;
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.format("Hello MasterJava!");
+        int[][] matrixA = MatrixUtil.create(1000);
+        int[][] matrixB = MatrixUtil.create(1000);
+        long startTime = System.currentTimeMillis();
+        int[][] resultMatrix = MatrixUtil.singleThreadMultiply(matrixA, matrixB);
+        long endTime = System.currentTimeMillis();
+        System.out.println("endTime-startTime = " + ((endTime - startTime) / 1000d) + " sec");
     }
 }
