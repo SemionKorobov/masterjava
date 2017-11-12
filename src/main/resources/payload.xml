@@ -21,7 +21,7 @@
         <User flag="deleted" city="spb" email="mail@yandex.ru">
             <fullName>Deleted</fullName>
             <groups>
-                <group id="topjava01"/>
+                <group id="masterjava01"/>
             </groups>
         </User>
     </Users>

@@ -1,6 +1,7 @@
 
 package ru.javaops.masterjava.xml.schema;
 
+
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
@@ -10,7 +11,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the ru.javaops.masterjava.xml.schema package. 
+ * generated in the mypackage package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -25,33 +26,57 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _City_QNAME = new QName("http://javaops.ru", "City");
+    private final static QName _Project_QNAME = new QName("http://javaops.ru", "Project");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: ru.javaops.masterjava.xml.schema
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: mypackage
      * 
      */
     public ObjectFactory() {
     }
 
     /**
-     * Create an instance of {@link Payload }
-     * 
-     */
-    public Payload createPayload() {
-        return new Payload();
-    }
-
-    /**
      * Create an instance of {@link User }
-     * 
+     *
      */
     public User createUser() {
         return new User();
     }
 
     /**
+     * Create an instance of {@link Payload }
+     *
+     */
+    public Payload createPayload() {
+        return new Payload();
+    }
+
+    /**
+     * Create an instance of {@link User.Groups }
+     *
+     */
+    public User.Groups createUserGroups() {
+        return new User.Groups();
+    }
+
+    /**
+     * Create an instance of {@link ProjectType }
+     *
+     */
+    public ProjectType createProjectType() {
+        return new ProjectType();
+    }
+
+    /**
+     *
+     */
+    public Group createGroup() {
+        return new Group();
+    }
+
+    /**
      * Create an instance of {@link Payload.Cities }
-     * 
+     *
      */
     public Payload.Cities createPayloadCities() {
         return new Payload.Cities();
@@ -59,27 +84,60 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Payload.Users }
-     * 
+     *
      */
     public Payload.Users createPayloadUsers() {
         return new Payload.Users();
     }
 
     /**
+     * Create an instance of {@link Payload.Projects }
+     *
+     */
+    public Payload.Projects createPayloadProjects() {
+        return new Payload.Projects();
+    }
+
+    /**
+     * Create an instance of {@link Payload.Groups }
+     *
+     */
+    public Payload.Groups createPayloadGroups() {
+        return new Payload.Groups();
+    }
+
+    /**
      * Create an instance of {@link CityType }
-     * 
+     *
      */
     public CityType createCityType() {
         return new CityType();
     }
 
     /**
+     * Create an instance of {@link User.Groups.Group }
+     *
+     */
+    public User.Groups.Group createUserGroupsGroup() {
+        return new User.Groups.Group();
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CityType }{@code >}}
-     * 
+     *
      */
     @XmlElementDecl(namespace = "http://javaops.ru", name = "City")
     public JAXBElement<CityType> createCity(CityType value) {
         return new JAXBElement<CityType>(_City_QNAME, CityType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ProjectType }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://javaops.ru", name = "Project")
+    public JAXBElement<ProjectType> createProject(ProjectType value) {
+        return new JAXBElement<ProjectType>(_Project_QNAME, ProjectType.class, null, value);
     }
 
 }

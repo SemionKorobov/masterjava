@@ -8,7 +8,9 @@ package ru.javaops.masterjava;
  * @link https://github.com/JavaOPs/topjava
  */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         System.out.format("Hello MasterJava!");
+        MainXml mainXml = new MainXml();
+        mainXml.printSortedUserListForProject("topjava");
     }
 }
