@@ -1,5 +1,6 @@
 package ru.javaops.masterjava.upload;
 
+import com.google.common.io.CharStreams;
 import org.thymeleaf.context.WebContext;
 import ru.javaops.masterjava.persist.model.User;
 
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
 
 import static ru.javaops.masterjava.common.web.ThymeleafListener.engine;
@@ -39,7 +41,8 @@ public class UploadServlet extends HttpServlet {
                 throw new IllegalStateException("Upload file have not been selected");
             }
             try (InputStream is = filePart.getInputStream()) {
-                List<User> users = userProcessor.process(is);
+                String chunkSize = CharStreams.toString(new InputStreamReader(req.getPart("chunkSize").getInputStream()));
+                List<User> users = userProcessor.process(is, chunkSize);
                 webContext.setVariable("users", users);
                 engine.process("result", webContext, resp.getWriter());
             }
